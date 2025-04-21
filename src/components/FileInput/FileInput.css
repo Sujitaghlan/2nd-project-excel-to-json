@@ -1,0 +1,28 @@
+.input-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+h1{
+  color: green;
+}
+
+.removeFile{
+  border: none;
+  background-color: green;
+  font-size: 16px;
+  color: rgb(245, 242, 242);
+  padding: 0 10px;
+  margin: 0;
+}
+
+.remove-container{
+  display: flex;
+  gap: 20px;
+  border: 1px solid green;
+  padding: 5px;
+  border-radius: 5px;
+}
