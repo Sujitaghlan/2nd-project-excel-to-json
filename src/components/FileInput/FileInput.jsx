@@ -81,6 +81,19 @@ const FileInput = () => {
     if (fileRef.current) fileRef.current.value = "";
   };
 
+  const downloadJSON = (jsonData, fileName) => {
+    const jsonString = JSON.stringify(jsonData, null, 2);
+    const blob = new Blob([jsonString], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+  
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = fileName.replace(/\.(xlsx|xls)$/, ".json");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+  
   return (
     <div className="input-container">
           <h1>Excel to Json Converter</h1>
@@ -135,6 +148,14 @@ const FileInput = () => {
       
   </tbody>
 </table>
+{
+  data.length > 0 && (
+    <button className="btn btn-primary" onClick={() => downloadJSON(data, fileName)}>
+      Download JSON
+    </button>
+  )
+}
+
       </div>
         )
       }
